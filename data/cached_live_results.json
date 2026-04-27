@@ -1,0 +1,50 @@
+{
+  "description": "Last successful live result. Generated from optional external APIs and safe fallbacks.",
+  "cached_at": "2026-04-27T15:11:24+00:00",
+  "params": {
+    "brand": "Humble Grape / Vivat Bacchus",
+    "location": "Farringdon / London Bridge, London",
+    "offer": "private dining, wine tastings, corporate events, team socials, client entertainment, Christmas parties",
+    "icp": "Local businesses that may book client dinners, team socials, Christmas parties, wine tastings, private dining, networking events, or PA-organised corporate hospitality.",
+    "category": "Professional services, finance, property, technology, creative agencies",
+    "lead_count": 1,
+    "mode": "live_required"
+  },
+  "results": [
+    {
+      "name": "Live Search Co",
+      "business_name": "Live Search Co",
+      "category": "Marketing agency",
+      "address": "1 Live Street, London",
+      "website": "https://live-search.example",
+      "phone": "",
+      "rating": 4.5,
+      "fit_score": 82,
+      "reason": "Live Search Co is relevant because the live research points to this signal: Inference: the listing category 'Marketing agency' may indicate client or team meetings. The outreach angle should stay focused on post-workshop wine tasting.",
+      "suggested_contact_role": "Office Manager",
+      "research_summary": "Inference: Live Search Co appears to be a Marketing agency based on the sourced local listing. Use live web research before treating this as a confirmed buying signal.",
+      "signals": [
+        "Inference: the listing category 'Marketing agency' may indicate client or team meetings.",
+        "Inference: central London proximity may make nearby hospitality practical."
+      ],
+      "source_urls": [
+        "https://live-search.example"
+      ],
+      "source": "SerpAPI Google Maps",
+      "lead_source": "SerpAPI Google Maps",
+      "research_mode": "fallback",
+      "confidence": "low",
+      "email_subject": "Post-Workshop Wine Tasting for Live Search Co",
+      "email_body": "Hi Office Manager,\n\nLive Search Co came up in local research around Marketing agency. One useful signal is: Inference: the listing category 'Marketing agency' may indicate client or team meetings.\n\nFor Humble Grape / Vivat Bacchus, I would keep the angle narrow: post-workshop wine tasting for a small client or team moment, rather than a broad events pitch. It could suit occasions where the venue needs to feel considered, central and easy to organise.\n\nWould a short venue note with one or two relevant formats be useful?\n\nBest,\nEvents Team \u2014 on behalf of Humble Grape / Vivat Bacchus",
+      "provider_used": "Fallback",
+      "angle": "",
+      "result_mode": "live",
+      "fallback_used": true,
+      "badges": [
+        "Live",
+        "Fallback",
+        "Fallback used"
+      ]
+    }
+  ]
+}

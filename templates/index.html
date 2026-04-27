@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Hospitality Lead Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="bg-neutral-950 text-neutral-100">
+    <main class="mx-auto flex min-h-screen max-w-6xl flex-col px-5 py-8">
+      <section class="mb-8 border-b border-neutral-800 pb-6">
+        <p class="text-sm uppercase tracking-[0.2em] text-amber-300">Seed + optional live mode</p>
+        <h1 class="mt-3 text-4xl font-semibold text-white md:text-5xl">Local Hospitality Lead Engine</h1>
+        <p class="mt-4 max-w-3xl text-base text-neutral-300">
+          Rank local businesses for private dining, wine tastings and corporate hospitality using seed data, cached demos, or optional live APIs.
+        </p>
+      </section>
+
+      <form method="post" class="grid gap-5 rounded-lg border border-neutral-800 bg-neutral-900 p-5 shadow-2xl shadow-black/30 md:grid-cols-2">
+        <label class="block">
+          <span class="text-sm font-medium text-neutral-200">Brand</span>
+          <input name="brand" value="{{ defaults.brand }}" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">
+        </label>
+
+        <label class="block">
+          <span class="text-sm font-medium text-neutral-200">Location</span>
+          <input name="location" value="{{ defaults.location }}" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">
+        </label>
+
+        <label class="block md:col-span-2">
+          <span class="text-sm font-medium text-neutral-200">Offer</span>
+          <textarea name="offer" rows="3" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">{{ defaults.offer }}</textarea>
+        </label>
+
+        <label class="block md:col-span-2">
+          <span class="text-sm font-medium text-neutral-200">ICP</span>
+          <textarea name="icp" rows="4" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">{{ defaults.icp }}</textarea>
+        </label>
+
+        <label class="block">
+          <span class="text-sm font-medium text-neutral-200">Category</span>
+          <input name="category" value="{{ defaults.category }}" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">
+        </label>
+
+        <label class="block">
+          <span class="text-sm font-medium text-neutral-200">Number of leads</span>
+          <input name="lead_count" type="number" min="1" max="20" value="{{ defaults.lead_count }}" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">
+        </label>
+
+        <label class="block md:col-span-2">
+          <span class="text-sm font-medium text-neutral-200">Mode</span>
+          <select name="mode" class="mt-2 w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-white outline-none focus:border-amber-300">
+            <option value="seed_demo">Seed demo</option>
+            <option value="live_required">Live search only</option>
+            <option value="live_if_available">Live if available, fallback if needed</option>
+            <option value="cached_demo">Cached demo</option>
+          </select>
+          <p class="mt-2 text-sm text-amber-200">Live search only requires SerpAPI and fails clearly if live sourcing is unavailable. Live if available safely falls back to seed demo.</p>
+        </label>
+
+        <section id="liveReadinessPanel" class="md:col-span-2 rounded-md border border-amber-300/30 bg-amber-300/10 p-4 text-sm text-amber-50">
+          <div class="font-semibold text-white">Live readiness</div>
+          <p class="mt-1 text-amber-100/80">Checking optional live configuration...</p>
+        </section>
+
+        <div class="flex items-center justify-between gap-3 border-t border-neutral-800 pt-5 md:col-span-2">
+          <p class="text-sm text-neutral-400">Seed and cached modes work without API keys. Live search only never returns demo leads.</p>
+          <div class="flex flex-wrap justify-end gap-3">
+            <button class="rounded-md border border-neutral-700 px-5 py-2 font-semibold text-neutral-100 hover:border-amber-300" type="submit" name="load_cached_live" value="1">
+              Load cached live demo
+            </button>
+            <button class="rounded-md bg-amber-300 px-5 py-2 font-semibold text-neutral-950 hover:bg-amber-200" type="submit">
+              Generate leads
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+  </body>
+</html>

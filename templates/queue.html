@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Outreach Operations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body class="bg-neutral-950 text-neutral-100">
+    <main class="min-h-screen lg:grid lg:grid-cols-[260px_1fr]">
+      <aside class="border-b border-neutral-800 bg-neutral-950 px-5 py-5 lg:border-b-0 lg:border-r">
+        <a href="/" class="text-sm font-semibold text-amber-300 hover:text-amber-200">New search</a>
+        <h1 class="mt-4 text-2xl font-semibold">Outreach ops</h1>
+        <nav id="queueFilters" class="mt-6 grid gap-2">
+          <button class="queue-filter rounded-md border border-amber-300 bg-amber-300/10 px-3 py-2 text-left text-sm text-amber-100" data-queue="review">Review Queue</button>
+          <button class="queue-filter rounded-md border border-neutral-800 px-3 py-2 text-left text-sm text-neutral-200" data-status="approved">Approved</button>
+          <button class="queue-filter rounded-md border border-neutral-800 px-3 py-2 text-left text-sm text-neutral-200" data-status="rejected">Rejected</button>
+          <button class="queue-filter rounded-md border border-neutral-800 px-3 py-2 text-left text-sm text-neutral-200" data-status="do_not_contact">Do Not Contact</button>
+          <button class="queue-filter rounded-md border border-neutral-800 px-3 py-2 text-left text-sm text-neutral-200" data-status="exported">Exported</button>
+        </nav>
+        <div class="mt-6 border-t border-neutral-800 pt-4">
+          <button id="resetDemoButton" class="w-full rounded-md border border-red-500/40 px-3 py-2 text-left text-sm font-semibold text-red-200 hover:bg-red-500/10">Reset demo data</button>
+          <p class="mt-2 text-xs leading-5 text-neutral-500">Clears local demo workflow records only.</p>
+        </div>
+      </aside>
+
+      <section class="px-5 py-6 lg:px-8">
+        <div class="flex flex-col gap-4 border-b border-neutral-800 pb-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p id="queueEyebrow" class="text-sm text-amber-300">Active workflow</p>
+            <h2 id="queueTitle" class="mt-1 text-3xl font-semibold">Review Queue</h2>
+            <p id="queueDescription" class="mt-2 max-w-3xl text-neutral-300">Generated and in-review leads that still need a decision.</p>
+          </div>
+          <a id="exportButton" class="hidden rounded-md bg-amber-300 px-4 py-2 font-semibold text-neutral-950 hover:bg-amber-200" href="/export/approved">Export approved CSV</a>
+        </div>
+
+        <section id="toast" class="mt-4 hidden rounded-md border px-4 py-3 text-sm"></section>
+        <section id="queueCounts" class="my-5 grid gap-3 text-sm sm:grid-cols-2 xl:grid-cols-5"></section>
+        <section id="outreachPanel" class="mb-5 hidden rounded-md border border-neutral-800 bg-neutral-900 p-4"></section>
+        <section id="actionResults" class="mb-5 hidden"></section>
+        <section id="queueList" class="grid gap-4"></section>
+      </section>
+    </main>
+    <script src="{{ url_for('static', filename='queue.js') }}?v=approved-render-3"></script>
+  </body>
+</html>

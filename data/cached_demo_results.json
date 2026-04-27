@@ -1,0 +1,134 @@
+{
+  "description": "Cached fixture generated from local seed data only. Sources are labelled as demo signals.",
+  "results": [
+    {
+      "name": "Saffron Property Partners",
+      "business_name": "Saffron Property Partners",
+      "category": "Commercial property consultancy",
+      "address": "20 St John Street, Farringdon, London EC1M 4AY",
+      "website": "https://demo.example/saffron-property-partners",
+      "distance_hint": "A short walk from Farringdon, making it practical for post-meeting hosting without asking guests to cross town",
+      "company_type": "property",
+      "likely_event_use_case": "landlord updates, investor dinners and local networking evenings",
+      "business_signal": "works around landlord relationships, asset updates and client-facing property advice",
+      "buying_moment": "property advisers often need a credible nearby setting after valuations, lease discussions or investor reviews",
+      "suggested_contact_role": "Office Manager or EA to Managing Partner",
+      "relevance_angle": "private dining for landlord or investor conversations after nearby meetings",
+      "likely_pain_or_need": "a polished local room that feels more deliberate than a pub but less formal than a hotel",
+      "why_now": "quarterly portfolio reviews and winter client hosting create timely reasons to book ahead",
+      "source_note": "Demo research profile",
+      "base_fit_score": 57,
+      "confidence": 0.86,
+      "fit_score": 94,
+      "reason": "Saffron Property Partners is a strong property-sector prospect because it works around landlord relationships, asset updates and client-facing property advice. The local networking rhythm makes private dining for landlord or investor conversations after nearby meetings more credible than a generic team-social message.",
+      "research_summary": "Property profile: works around landlord relationships, asset updates and client-facing property advice. A short walk from Farringdon, making it practical for post-meeting hosting without asking guests to cross town. Likely need: a polished local room that feels more deliberate than a pub but less formal than a hotel. Timing note: quarterly portfolio reviews and winter client hosting create timely reasons to book ahead.",
+      "signals": [
+        "works around landlord relationships, asset updates and client-facing property advice",
+        "property advisers often need a credible nearby setting after valuations, lease discussions or investor reviews",
+        "private dining for landlord or investor conversations after nearby meetings",
+        "quarterly portfolio reviews and winter client hosting create timely reasons to book ahead"
+      ],
+      "source_urls": [
+        "Demo research profile",
+        "Seeded local proximity signal",
+        "Demo event-use-case assumption"
+      ],
+      "lead_source": "Seed data",
+      "source": "Seed data",
+      "research_mode": "seed",
+      "result_mode": "seed",
+      "fallback_used": false,
+      "badges": [
+        "Seed"
+      ],
+      "email_subject": "Investor dinners around Farringdon",
+      "email_body": "Hi Office Manager or EA to Managing Partner,\n\nWorks around landlord relationships, asset updates and client-facing property advice, so the useful angle is not a broad venue pitch.\n\nFor Humble Grape / Vivat Bacchus, I would lead with private dining for landlord or investor conversations after nearby meetings. It gives your team landlord and investor dinners for landlord updates, investor dinners and local networking evenings while helping with a polished local room that feels more deliberate than a pub but less formal than a hotel.\n\nWould it be helpful if I shared two or three private dining formats for landlord or investor conversations?\n\nBest,\nEvents Team - on behalf of Humble Grape / Vivat Bacchus"
+    },
+    {
+      "name": "Bridgepoint Legal LLP",
+      "business_name": "Bridgepoint Legal LLP",
+      "category": "Corporate law firm",
+      "address": "8 More London Riverside, London SE1 2RE",
+      "website": "https://demo.example/bridgepoint-legal",
+      "distance_hint": "Close to London Bridge and convenient for clients travelling from the City or South Bank",
+      "company_type": "law",
+      "likely_event_use_case": "partner-hosted client dinners, transaction celebrations and private boardroom-style hospitality",
+      "business_signal": "handles corporate matters where partners need to host clients discreetly before or after meetings",
+      "buying_moment": "legal teams often look for private dining when a matter closes, a client visits London or partners plan a relationship dinner",
+      "suggested_contact_role": "Practice Manager or Senior PA",
+      "relevance_angle": "a private dining room for partner-led client dinners near London Bridge",
+      "likely_pain_or_need": "a reliable private setting where conversation is easy and service does not feel showy",
+      "why_now": "year-end client reviews and deal-completion dinners make venue options useful before diaries fill",
+      "source_note": "Demo research profile",
+      "base_fit_score": 59,
+      "confidence": 0.88,
+      "fit_score": 90,
+      "reason": "Bridgepoint Legal LLP is a high-priority legal lead because it handles corporate matters where partners need to host clients discreetly before or after meetings. legal teams often look for private dining when a matter closes, a client visits London or partners plan a relationship dinner points to a private dining room for partner-led client dinners near London Bridge, especially when a polished room matters more than a casual bar booking.",
+      "research_summary": "Law profile: handles corporate matters where partners need to host clients discreetly before or after meetings. Close to London Bridge and convenient for clients travelling from the City or South Bank. Likely need: a reliable private setting where conversation is easy and service does not feel showy. Timing note: year-end client reviews and deal-completion dinners make venue options useful before diaries fill.",
+      "signals": [
+        "handles corporate matters where partners need to host clients discreetly before or after meetings",
+        "legal teams often look for private dining when a matter closes, a client visits London or partners plan a relationship dinner",
+        "a private dining room for partner-led client dinners near London Bridge",
+        "year-end client reviews and deal-completion dinners make venue options useful before diaries fill"
+      ],
+      "source_urls": [
+        "Demo research profile",
+        "Seeded local proximity signal",
+        "Demo event-use-case assumption"
+      ],
+      "lead_source": "Seed data",
+      "source": "Seed data",
+      "research_mode": "seed",
+      "result_mode": "seed",
+      "fallback_used": false,
+      "badges": [
+        "Seed"
+      ],
+      "email_subject": "Private client dinners near London Bridge",
+      "email_body": "Hi Practice Manager or Senior PA,\n\nHandles corporate matters where partners need to host clients discreetly before or after meetings, so the useful angle is not a broad venue pitch.\n\nFor Humble Grape / Vivat Bacchus, I would lead with a private dining room for partner-led client dinners near London Bridge. It gives your team private dining for partner-hosted client dinners, transaction celebrations and private boardroom-style hospitality while helping with a reliable private setting where conversation is easy and service does not feel showy.\n\nWould it be worth sending a short private dining note with room formats that work for partner-hosted client dinners?\n\nBest,\nEvents Team - on behalf of Humble Grape / Vivat Bacchus"
+    },
+    {
+      "name": "Northbank Capital",
+      "business_name": "Northbank Capital",
+      "category": "Investment management",
+      "address": "1 Poultry, London EC2R 8EJ",
+      "website": "https://demo.example/northbank-capital",
+      "distance_hint": "Within easy reach of both Farringdon and London Bridge for City-based client entertaining",
+      "company_type": "finance",
+      "likely_event_use_case": "investor dinners, portfolio review evenings and discreet client entertainment",
+      "business_signal": "serves investors and private clients who expect considered hosting rather than noisy group events",
+      "buying_moment": "finance teams need calm venues when investors are in town or relationship managers plan review dinners",
+      "suggested_contact_role": "Executive Assistant or Head of Operations",
+      "relevance_angle": "a discreet wine-led dinner for investor hosting",
+      "likely_pain_or_need": "somewhere central, quiet and professional enough for sensitive client conversations",
+      "why_now": "quarter-end reporting and investor update cycles create natural client hospitality windows",
+      "source_note": "Demo research profile",
+      "base_fit_score": 58,
+      "confidence": 0.84,
+      "fit_score": 90,
+      "reason": "Northbank Capital stands out as a finance lead because it serves investors and private clients who expect considered hosting rather than noisy group events. The buying moment is less about big events and more about a discreet wine-led dinner for investor hosting, where privacy and a steady service style matter.",
+      "research_summary": "Finance profile: serves investors and private clients who expect considered hosting rather than noisy group events. Within easy reach of both Farringdon and London Bridge for City-based client entertaining. Likely need: somewhere central, quiet and professional enough for sensitive client conversations. Timing note: quarter-end reporting and investor update cycles create natural client hospitality windows.",
+      "signals": [
+        "serves investors and private clients who expect considered hosting rather than noisy group events",
+        "finance teams need calm venues when investors are in town or relationship managers plan review dinners",
+        "a discreet wine-led dinner for investor hosting",
+        "quarter-end reporting and investor update cycles create natural client hospitality windows"
+      ],
+      "source_urls": [
+        "Demo research profile",
+        "Seeded local proximity signal",
+        "Demo event-use-case assumption"
+      ],
+      "lead_source": "Seed data",
+      "source": "Seed data",
+      "research_mode": "seed",
+      "result_mode": "seed",
+      "fallback_used": false,
+      "badges": [
+        "Seed"
+      ],
+      "email_subject": "Discreet client dinners in central London",
+      "email_body": "Hi Executive Assistant or Head of Operations,\n\nServes investors and private clients who expect considered hosting rather than noisy group events, so the useful angle is not a broad venue pitch.\n\nFor Humble Grape / Vivat Bacchus, I would lead with a discreet wine-led dinner for investor hosting. It gives your team discreet client dinner for investor dinners, portfolio review evenings and discreet client entertainment while helping with somewhere central, quiet and professional enough for sensitive client conversations.\n\nWould a concise note on private dining options for investor or client evenings be useful?\n\nBest,\nEvents Team - on behalf of Humble Grape / Vivat Bacchus"
+    }
+  ]
+}
