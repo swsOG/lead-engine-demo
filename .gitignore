@@ -16,3 +16,11 @@ server*.err
 *.tmp
 *.bak
 ~$*
+
+# Internal WIP / handoff notes — not for public repo
+TODO_NEXT.md
+CURRENT_STATUS.md
+CURSOR_HANDOFF.md
+CURSOR_SETUP_AND_TOOLING.md
+AGENTS.md
+*.docx
