@@ -1,89 +1,78 @@
-# Local Hospitality Lead Engine Demo
+# Local Hospitality Lead Engine
 
-A safe interview demo for a local hospitality lead engine. It runs with Flask, SQLite, vanilla JavaScript, Tailwind CDN, and seed JSON data. Optional live mode can use external APIs when keys are available.
+AI-assisted lead research for local hospitality outreach, with a human approval step before anything leaves the app.
 
-No API keys are needed for seed mode. This app does not use email sending, auth, Docker, or React.
+Give it a brand, a location and an offer. It finds and researches local businesses, ranks them against your ideal customer profile, drafts a personalised email for each, and puts every lead into an approval queue. Only leads a person approves can be exported or handed to an outreach tool.
 
-## Run
+> **Status:** working prototype (April to June 2026). It runs fully offline in seed mode. Live mode works with your own API keys; it has not been used for a real campaign.
 
-```powershell
+---
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Brief<br/>brand, location,<br/>offer, ICP] --> B[Source<br/>SerpAPI Google Maps]
+    B --> C[Research<br/>Tavily, with<br/>source URLs]
+    C --> D[Score and draft<br/>Gemini, then OpenAI,<br/>then Anthropic]
+    D --> E[Approval queue<br/>approve, reject,<br/>do not contact]
+    E --> F[Contact check<br/>Hunter verify]
+    F --> G[Export CSV or<br/>push to Instantly]
+```
+
+- **Three modes.** `seed_demo` needs no keys. `live_if_available` calls the real APIs and falls back step by step if a key is missing or a call fails. `cached_demo` replays a saved run instantly.
+- **Model fallback chain.** Scoring and drafting try Gemini 2.5 Flash first, then OpenAI, then Anthropic, then a deterministic template, so a run never crashes because one provider is down.
+- **Approval workflow.** Leads move through `generated`, `reviewed`, `approved`, `rejected`, `do_not_contact` and `exported`. Emails can be edited before approval.
+- **Guards before outreach.** Rejected and do-not-contact leads can never be exported or pushed. Addresses that fail Hunter verification are blocked, and a manually entered address needs explicit confirmation before it can be pushed.
+- **Provenance.** Research keeps its source URLs, and demo data is labelled as demo.
+
+The app itself never sends email.
+
+---
+
+## Run it
+
+```bash
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
 python app.py
 ```
 
-Open http://127.0.0.1:5000.
+Open http://127.0.0.1:5000 and pick **seed demo** mode. The approval queue is at `/approvals`.
 
-## Modes
+### Live mode (optional)
 
-- `seed_demo`: uses `data/seed_leads.json`; works with zero API keys.
-- `live_if_available`: tries SerpAPI for local business sourcing, Tavily for research, and Gemini/OpenAI/Anthropic for scoring/email drafting. Any failure falls back safely.
-- `cached_demo`: loads the cached seed demo result.
-- `Load cached live demo`: loads `data/cached_live_results.json` instantly after a successful live run.
+Copy `.env.example` to `.env` and add any keys you have. Each is optional; whatever is missing falls back.
 
-Live mode is capped at 5 leads by default to control speed and cost.
+| Key | Used for |
+|---|---|
+| `SERPAPI_API_KEY` | Finding local businesses (Google Maps results) |
+| `TAVILY_API_KEY` | Researching each business, with source URLs |
+| `GEMINI_API_KEY` | Primary model for scoring and drafting |
+| `OPENAI_API_KEY`, `ANTHROPIC_API_KEY` | Fallback models |
+| `HUNTER_API_KEY` | Finding and verifying contact emails |
+| `INSTANTLY_API_KEY` plus `INSTANTLY_CAMPAIGN_ID` or `INSTANTLY_LIST_ID` | Pushing approved, verified leads to an Instantly campaign or list |
 
-## Optional Live API Keys
+Live runs are capped at 5 leads by default to control cost.
 
-Create a local `.env` file from `.env.example` and add keys there. Do not commit `.env`.
+---
 
-```powershell
-Copy-Item .env.example .env
+## Tests
+
+```bash
+pip install pytest
+pytest -q
 ```
 
-Variables:
+48 tests cover the approval workflow and export rules, live-mode fallbacks, output quality and progress reporting. They run in seed mode with no API keys, and run in CI on every push.
 
-- `SERPAPI_API_KEY`: sources real local businesses using SerpAPI Google Maps results.
-- `TAVILY_API_KEY`: researches each business and returns source URLs.
-- `GEMINI_API_KEY`: primary LLM scoring and email drafting using Gemini 2.5 Flash.
-- `OPENAI_API_KEY`: optional fallback LLM scoring and email drafting.
-- `ANTHROPIC_API_KEY`: optional second fallback LLM scoring and email drafting.
+---
 
-If a key is missing or an API call fails, the app logs a warning and falls back instead of crashing.
+## Tech stack
 
-## What It Does
+Python, Flask, SQLite, vanilla JavaScript, Tailwind (CDN). Integrations: SerpAPI, Tavily, Gemini, OpenAI, Anthropic, Hunter and Instantly.
 
-1. Shows a lead-generation form at `/`.
-2. Accepts brand, location, offer, ICP, category, and number of leads.
-3. Starts a background job on submit.
-4. Redirects to `/results/<job_id>`.
-5. Polls `/api/status/<job_id>`.
-6. Shows progress.
-7. Returns ranked leads from seed, cached, or live mode.
-8. Displays personalised demo outreach with a copy email button.
-9. Saves generated leads into an approval workflow.
-10. Lets users approve, reject, suppress, edit, and export approved leads.
+## How it was built
 
-## Approval Workflow
-
-Open `/approvals` after generating leads.
-
-Lead statuses:
-
-- `generated`
-- `reviewed`
-- `approved`
-- `rejected`
-- `do_not_contact`
-- `exported`
-
-On each lead you can edit the email, approve it, reject it, or mark it do-not-contact. Approved leads can be exported from:
-
-```text
-/export/approved
-```
-
-The same export is also available at `/export/approved.csv`.
-
-The CSV export marks exported leads as `exported`. The app does not send emails directly. Actual sending should be handled later through a controlled outbound or CRM tool such as Instantly, Smartlead, HubSpot, or a similar approved workflow.
-
-## Demo Data
-
-Lead data is stored in:
-
-- `data/seed_leads.json`
-- `data/cached_demo_results.json`
-- `data/cached_live_results.json`
-
-Sources are demo-labelled where they are not live source URLs.
+Designed by me and built with AI coding agents. I set the requirements and the approval rules, directed the agents, reviewed the output and defined the acceptance tests.
