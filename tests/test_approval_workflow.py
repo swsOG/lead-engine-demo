@@ -1,8 +1,10 @@
 import csv
 import io
 import os
+import tempfile
 import time
 import unittest
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import app
@@ -54,9 +56,12 @@ class ApprovalWorkflowTest(unittest.TestCase):
             return conn.execute(f"SELECT COUNT(*) AS count FROM {table_name}").fetchone()["count"]
 
     def test_local_env_loader_fills_blank_environment_values(self):
-        with patch.dict(os.environ, {"HUNTER_API_KEY": ""}, clear=False):
-            app.load_local_env()
-            self.assertTrue(os.environ["HUNTER_API_KEY"])
+        with tempfile.TemporaryDirectory() as tmpdir:
+            (Path(tmpdir) / ".env").write_text("HUNTER_API_KEY=from-env-file\n", encoding="utf-8")
+            with patch.object(app, "BASE_DIR", Path(tmpdir)):
+                with patch.dict(os.environ, {"HUNTER_API_KEY": ""}, clear=False):
+                    app.load_local_env()
+                    self.assertEqual(os.environ["HUNTER_API_KEY"], "from-env-file")
 
     def test_completed_job_persists_leads_with_generated_status(self):
         _client, payload = self.create_seed_job()
